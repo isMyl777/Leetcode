@@ -1,6 +1,6 @@
 nums = [2,7,11,15]
 target = 9
-def twosum():
+def twosum(nums,target):
   d = {}
   for i in range(len(nums)):
       x = target - nums[i]
@@ -8,3 +8,5 @@ def twosum():
           return [d[nums[i]],i]
       else:
         d[x] = i
+        
+twosum(nums,target)
