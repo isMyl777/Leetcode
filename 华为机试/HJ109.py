@@ -11,7 +11,8 @@ for i in range(1,len(a)):
         count = 1
         pre = a[i]
 res = res + str(count) + pre
-if len(res) >len(a):
-    print(a)
-else:
-    print(res)
+print(''.join([x for x in list(res) if x != '1']))
+# if len(res) >len(a):
+#     print(a)
+# else:
+#     print(res)
