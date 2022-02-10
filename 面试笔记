@@ -8,6 +8,7 @@ else:
     mm = [31,28,31,30,31,30,31,31,30,31,30,31]
 res = sum(mm[:month-1]) + day
 print(res)
+//////////////////////////////////////////////
 2、数组中找出A=B+2C
 n = [1,2,3,4,5,6,7,8]
 n.sort(reverse= True)
@@ -25,3 +26,22 @@ for i in range(len(n)):
                 print(target, int(i1/2), res)
 if count == 0:
     print(0)
+///////////////////////////////////////////////
+3、猴子爬山
+n = int(input())
+result = []
+if(n == 1):
+    print(1)
+elif(n == 2):
+    print(1)
+elif(n == 3):
+    print(2)
+else:
+    result.append(0)
+    result.append(1)
+    result.append(1)
+    result.append(2)
+    for i in range(4, n+1):
+        result.append(result[i-1]+result[i-3])
+    print(result)
+    print(result.pop())
