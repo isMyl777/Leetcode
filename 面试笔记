@@ -8,3 +8,20 @@ else:
     mm = [31,28,31,30,31,30,31,31,30,31,30,31]
 res = sum(mm[:month-1]) + day
 print(res)
+2、数组中找出A=B+2C
+n = [1,2,3,4,5,6,7,8]
+n.sort(reverse= True)
+print(n)
+count = 0
+for i in range(len(n)):
+    target = i
+    tem_n = n[i+1:]
+    tem = [x*2 for x in tem_n]
+    for i1 in tem:
+        res = target - i1
+        if res in tem_n:
+            count += 1
+            if res != int(i1/2):
+                print(target, int(i1/2), res)
+if count == 0:
+    print(0)
