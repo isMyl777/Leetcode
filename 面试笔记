@@ -8,6 +8,14 @@ else:
     mm = [31,28,31,30,31,30,31,31,30,31,30,31]
 res = sum(mm[:month-1]) + day
 print(res)
+使用库
+import datetime
+year = 2022
+month = 1
+day = 31
+date1 = datetime.date(year=int(year),month=int(month),day=int(day))
+date2 = datetime.date(year=int(year),month=int(1),day=int(1))
+print((date1-date2).days +1)
 //////////////////////////////////////////////
 2、数组中找出A=B+2C
 n = [1,2,3,4,5,6,7,8]
