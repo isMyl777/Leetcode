@@ -71,3 +71,30 @@ GIL锁（又叫全局解释器锁，每个线程在执行的过程中都需要�
 合并字典
 left join 和 right join
 GIL 全局解释器锁
+2022.3.1
+#生成6位密码，包含大小写字母、数字
+import random
+n = 0
+s = ''
+while n < 6:
+    key = random.choice(range(0, 4));
+    if key == 1:
+        s += str(random.randint(0,9))
+    elif key == 0:
+        s += chr(random.randint(97, 122))
+    else:
+        s += chr(random.randint(65, 90))
+    n+=1
+print(s)
+#输入字符串，返回第一个只出现一次字母，如果没有返回空
+def onlyOnce(str1):
+    res = ''
+    for i in str1:
+        if str1.count(i) == 1:
+            res = i
+            break
+    else:
+            res = ' '
+    return res
+s = input()
+print(onlyOnce(s))
