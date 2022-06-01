@@ -1,18 +1,33 @@
-nums = ['word', 'dab', 'da', 'dc', 'dword', 'd']
-start = 0
-flag = nums[start][-1]
-# print(flag)
-tem_nums = []
-for i in nums:
-    if i[0] == flag:
-        tem_nums.append(i)
-# print(tem_nums)
-list1 = [[len(x), x]for x in tem_nums]
-# print(list1)
-list1 = sorted(list1, key=lambda x : [-1 * x[0], x[1]])
-# print(list1)
-if nums[start][0] == flag:
-    res = list1[0][1] + list1[1][1]
-else:
-    res = nums[start]+list1[0][1] + list1[1][1]
+...
+输⼊ 0 6 word dd da dc dword d 输出 worddwordda 
+说明： 先确定起始单词word 再确定d开头长度最长的单词dword 剩余
+以d开头且长度最长的由 da dd dc 则取字典序最⼩的da 所以最后输出worddwordda 
+⽰例⼆： 输⼊： 4 6 word dd da dc dword d 输
+出： dwordda
+...
+
+
+k = 4
+n = 6
+ints = ['word','dd','da','dc','dword','d']
+def long_word(nums):
+    tmp_words = [[len(w), w] for w in nums]
+    tmp_words = sorted(tmp_words, key=lambda x: (-1 * x[0], x[1]))
+    new_words = [w[1] for w in tmp_words]
+    return new_words[0]
+
+res = ints[k]
+new_res = res
+key = True
+while key:
+    ints.remove(new_res)
+    start_word = res[-1]
+    new_ll = [x for x in ints if x[0] == start_word]
+    if len(new_ll) ==0 :
+        break
+    else:
+        print(new_ll)
+        new_res = long_word(new_ll)
+        print(new_res)
+        res += new_res
 print(res)
