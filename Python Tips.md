@@ -33,3 +33,38 @@ def magic_bubble_sort(numbers):
         stop_position -= 1
     return numbers
 ```
+# 最长重复子串
+```
+s = 'nddemdereeeffetcssssfggddregg'
+
+def maxRepeatStr(str1):
+    if not str1:
+        return str1
+    # 去重后的每个元素的重复字符串可能的最大长度
+    len_up_border = len(str1) - len(set(str1)) + 1
+    # print(len_up_border)
+    # print(set(str1))
+    # 缓存遍历，最大长度和当前元素（分别初始化为1和最大ASCII码对应的字符）
+    max_len = 1
+    res = {}
+    # 长度反向遍历的跳出标识
+    flag = False
+    for i in range(len_up_border, 0, -1):
+        for s in set(str1):
+            spt = s * i
+            # print(spt)
+            splited = str1.split(spt)
+            print(splited)
+            if len(splited) > 1:
+                max_len = max(max_len, i)
+                res[i] = s
+                flag = True
+        if flag:
+            break
+    print(res)
+    output = [v * k for k, v in res.items()]
+    print(output)
+    print(output[0])
+
+maxRepeatStr(s)
+```
